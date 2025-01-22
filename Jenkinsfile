@@ -17,7 +17,7 @@ pipeline {
        stage('Docker Image push'){
             steps{
             withCredentials([string(credentialsId: 'docker_pwd', variable: 'docker_pwd')]) {
-                   sh 'docker login -u ashokit -p ${docker_pwd}'
+                   sh 'docker login -u shubhamghongade -p ${docker_pwd}'
                    sh 'docker push shubhamghongade/ecomm_store'
             }
             }
