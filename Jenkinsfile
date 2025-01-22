@@ -4,13 +4,13 @@ pipeline {
     stages {
         stage('Git clone') {
             steps {
-               git branch: 'main', url: 'https://github.com/ashokitschool/ashokit_ecomm_store.git'
+               git branch: 'main', url: 'https://github.com/shubham-0211/01_Frontend_ecomm_store.git'
             }
         }
         
         stage('Docker Image'){
             steps{
-                sh 'docker build -t ashokit/ecomm_store .'
+                sh 'docker build -t shubhamghongade/ecomm_store .'
             }
         }
         
@@ -18,7 +18,7 @@ pipeline {
             steps{
             withCredentials([string(credentialsId: 'docker_pwd', variable: 'docker_pwd')]) {
                    sh 'docker login -u ashokit -p ${docker_pwd}'
-                   sh 'docker push ashokit/ecomm_store'
+                   sh 'docker push shubhamghongade/ecomm_store'
             }
             }
         }
